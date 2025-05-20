@@ -12,6 +12,7 @@ public class GameFactory implements EntityFactory {
     @Spawns("player")
     public Entity newPlayer(SpawnData data) {
         return FXGL.entityBuilder(data)
+
                 .view(new ImageView(FXGL.image("player/Idle.png")))
                 .build();
     }

@@ -163,7 +163,7 @@
 
         <resources>
             <resource>
-                <directory>src/main/java/resources/assets</directory>
+                <directory>src/main/resources/assets</directory>
                 <includes>
                     <include>**/*</include>
                 </includes>

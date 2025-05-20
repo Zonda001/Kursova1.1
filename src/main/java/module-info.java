@@ -11,6 +11,7 @@ module untitled4 {
     requires com.dlsc.formsfx;
     requires eu.hansolo.tilesfx;
     requires org.slf4j;
+    requires java.logging;
 
     exports untitled4 to com.almasb.fxgl.core;
     exports org.example;
