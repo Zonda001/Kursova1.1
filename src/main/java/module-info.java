@@ -13,4 +13,5 @@ module untitled4 {
     requires org.slf4j;
 
     exports untitled4 to com.almasb.fxgl.core;
+    exports org.example;
 }

@@ -4,13 +4,10 @@ import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.input.UserAction;
-import javafx.scene.input.KeyCode;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
-import component.PlayerComponent;
+import org.example.GameFactory;
 
-import static com.almasb.fxgl.dsl.FXGL.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class GameApp extends GameApplication {
 
@@ -21,56 +18,40 @@ public class GameApp extends GameApplication {
         settings.setTitle("Owl's Blood");
         settings.setVersion("0.1");
         settings.setMainMenuEnabled(true);
-        settings.setGameMenuEnabled(true);
     }
 
     @Override
     protected void initGame() {
-        getGameScene().setBackgroundColor(Color.WHITE);
+        // Білий фон кімнати
+        FXGL.getGameScene().setBackgroundColor(Color.WHITE);
 
-        player = entityBuilder()
-                .at(300, 300)
-                .viewWithBBox(texture("player.png"))
-                .with(new PlayerComponent())
+        // Створення кімнати (наприклад, 800x600 білий прямокутник)
+        FXGL.entityBuilder()
+                .view(new Rectangle(800, 600, Color.WHITE))
                 .buildAndAttach();
+        FXGL.getGameWorld().addEntityFactory(new GameFactory());
+
+        FXGL.spawn("player", 300, 300);
+    }
+
+    @Override
+    protected void initGameVars(java.util.Map<String, Object> vars) {
+        // Можна сюди додати змінні гри, якщо потрібно
     }
 
     @Override
     protected void initInput() {
-        FXGL.getInput().addAction(new UserAction("Move Up") {
-            @Override
-            protected void onAction() {
-                getPlayer().up();
-            }
-        }, KeyCode.W);
-
-        FXGL.getInput().addAction(new UserAction("Move Down") {
-            @Override
-            protected void onAction() {
-                getPlayer().down();
-            }
-        }, KeyCode.S);
-
-        FXGL.getInput().addAction(new UserAction("Move Left") {
-            @Override
-            protected void onAction() {
-                getPlayer().left();
-            }
-        }, KeyCode.A);
-
-        FXGL.getInput().addAction(new UserAction("Move Right") {
-            @Override
-            protected void onAction() {
-                getPlayer().right();
-            }
-        }, KeyCode.D);
+        // Пізніше додамо input, зараз тільки структура
     }
 
-    private PlayerComponent getPlayer() {
-        return FXGL.getGameWorld()
-                .getEntitiesByComponent(PlayerComponent.class)
-                .get(0)
-                .getComponent(PlayerComponent.class);
+    @Override
+    protected void initUI() {
+        // UI можна буде додати пізніше
+    }
+
+    @Override
+    protected void initPhysics() {
+        // Поки що фізики не потрібно
     }
 
     public static void main(String[] args) {
