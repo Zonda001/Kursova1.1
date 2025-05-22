@@ -12,6 +12,9 @@ module untitled4 {
     requires eu.hansolo.tilesfx;
     requires org.slf4j;
     requires java.logging;
+    requires annotations;
+    requires com.fasterxml.jackson.annotation;
+    requires com.fasterxml.jackson.databind;
 
     exports untitled4 to com.almasb.fxgl.core;
     exports org.example;

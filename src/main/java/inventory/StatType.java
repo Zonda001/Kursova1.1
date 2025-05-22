@@ -1,0 +1,6 @@
+package inventory;
+
+public enum StatType {
+    ATTACK_DAMAGE, DEFENSE, MAGIC_RESISTANCE, CRITICAL_CHANCE,
+    HEALTH, MANA, STAMINA, SPEED, LUCK
+}

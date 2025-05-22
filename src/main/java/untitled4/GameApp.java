@@ -4,7 +4,7 @@ import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
-import org.example.GameFactory;
+import org.example.Player;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -29,7 +29,7 @@ public class GameApp extends GameApplication {
         FXGL.entityBuilder()
                 .view(new Rectangle(800, 600, Color.WHITE))
                 .buildAndAttach();
-        FXGL.getGameWorld().addEntityFactory(new GameFactory());
+        FXGL.getGameWorld().addEntityFactory(new Player());
 
         FXGL.spawn("player", 300, 300);
     }
