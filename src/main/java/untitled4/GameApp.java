@@ -4,23 +4,16 @@ import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
-<<<<<<< HEAD
-import org.example.Player;
-
-=======
 import com.almasb.fxgl.input.UserAction;
 import org.example.Player;
 
 import javafx.scene.input.KeyCode;
->>>>>>> origin/master
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class GameApp extends GameApplication {
 
     private Entity player;
-<<<<<<< HEAD
-=======
     private boolean isMoving = false;
     private boolean isRunning = false;
 
@@ -29,7 +22,6 @@ public class GameApp extends GameApplication {
     private boolean sPressed = false;
     private boolean aPressed = false;
     private boolean dPressed = false;
->>>>>>> origin/master
 
     @Override
     protected void initSettings(GameSettings settings) {
@@ -47,15 +39,9 @@ public class GameApp extends GameApplication {
         FXGL.entityBuilder()
                 .view(new Rectangle(800, 600, Color.WHITE))
                 .buildAndAttach();
-<<<<<<< HEAD
-        FXGL.getGameWorld().addEntityFactory(new Player());
-
-        FXGL.spawn("player", 300, 300);
-=======
 
         FXGL.getGameWorld().addEntityFactory(new Player());
         player = FXGL.spawn("player", 300, 300);
->>>>>>> origin/master
     }
 
     @Override
@@ -65,9 +51,6 @@ public class GameApp extends GameApplication {
 
     @Override
     protected void initInput() {
-<<<<<<< HEAD
-        // Пізніше додамо input, зараз тільки структура
-=======
         // Рух вверх (W)
         FXGL.getInput().addAction(new UserAction("Move Up") {
             @Override
@@ -204,7 +187,6 @@ public class GameApp extends GameApplication {
                 updateAnimation();
             }, javafx.util.Duration.millis(500)); // 500ms для анімації атаки
         }
->>>>>>> origin/master
     }
 
     @Override
@@ -220,8 +202,4 @@ public class GameApp extends GameApplication {
     public static void main(String[] args) {
         launch(args);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/master
